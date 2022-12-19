@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch wallet",
+            "name": "Launch mnemonic guess",
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}/cmd/wallet/main.go",
+            "program": "${workspaceFolder}/cmd/mnemonic/main.go",
             "args": [],
             "cwd": "${workspaceFolder}"
         }

@@ -1,0 +1,3 @@
+[submodule "internal/hdwallet"]
+	path = internal/hdwallet
+	url = git@github.com:deflinhec/go-hdwallet.git

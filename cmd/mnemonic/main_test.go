@@ -1,18 +1,15 @@
-package main
+package main_test
 
 import (
 	"fmt"
+	"testing"
 
 	"github.com/foxnut/go-hdwallet"
 )
 
-var (
-	mnemonic = "saddle equal noble seek enter gate eagle approve tank city unhappy coral"
-)
-
-func main() {
+func TestAddress(t *testing.T) {
 	master, err := hdwallet.NewKey(
-		hdwallet.Mnemonic(mnemonic),
+		hdwallet.Mnemonic(`range sheriff try enroll deer over ten level bring display stamp recycle`),
 	)
 	if err != nil {
 		panic(err)
@@ -51,7 +48,7 @@ func main() {
 	address, _ = wallet.GetAddress()
 	fmt.Println("ETC: ", address)
 
-	// USDT: 0x480C69E014C7f018dAbF17A98273e90f0b0680cf
+	// USDT: TXaMXTQgtdV6iqxtmQ7HNnqzXRoJKXfFAz
 	wallet, _ = master.GetWallet(hdwallet.CoinType(hdwallet.USDT))
 	address, _ = wallet.GetAddress()
 	fmt.Println("USDT: ", address)
