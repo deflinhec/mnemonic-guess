@@ -97,14 +97,14 @@ func Fetcher() *FetcherType {
 		wg: wg,
 		manager: [2]dispatch.Manager{
 			dispatch.NewManager(
-				dispatch.WithMaxWorker(1),
+				dispatch.WithMaxWorker(12),
 				dispatch.WithWaitGroup(wg),
-				dispatch.WithMaxJobs(3),
+				dispatch.WithMaxJobs(12),
 			),
 			dispatch.NewManager(
-				dispatch.WithMaxWorker(8),
+				dispatch.WithMaxWorker(24),
 				dispatch.WithWaitGroup(wg),
-				dispatch.WithMaxJobs(40),
+				dispatch.WithMaxJobs(48),
 			),
 		},
 	}
