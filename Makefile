@@ -22,6 +22,13 @@ fmt:
 tidy:
 	go mod tidy
 
+go-text:
+	go install golang.org/x/text/cmd/gotext@latest
+
+translate: go-text
+	go generate ./internal/translations/translations.go
+
+
 ifeq ($(PLATFORM),darwin)
 osx-tool:
 	go get github.com/machinebox/appify

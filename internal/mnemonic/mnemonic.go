@@ -76,10 +76,6 @@ func (m *FetcherType) Fetch(address string,
 	return m
 }
 
-func (m *FetcherType) Jobs() int64 {
-	return m.manager[EXPAND].Jobs()
-}
-
 func (m *FetcherType) Wait() *FetcherType {
 	m.wg.Wait()
 	return m
