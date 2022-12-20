@@ -12,4 +12,6 @@ type Manager interface {
 	Progress() float64
 
 	Jobs() int64
+
+	Flush()
 }

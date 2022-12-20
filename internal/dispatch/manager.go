@@ -61,6 +61,11 @@ func (m *ManagerType) Progress() float64 {
 	return math.Min(ratio, float64(1.0))
 }
 
+func (m *ManagerType) Flush() {
+	atomic.StoreInt64(&m.JobDone, 0)
+	atomic.StoreInt64(&m.JobTotal, 0)
+}
+
 func (m *ManagerType) Wait() {
 	m.wg.Wait()
 }
