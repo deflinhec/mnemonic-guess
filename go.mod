@@ -7,6 +7,7 @@ require (
 	github.com/foxnut/go-hdwallet v0.0.0-20200602072018-8db9c730e77c
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/tyler-smith/go-bip39 v1.0.2
+	golang.org/x/text v0.5.0
 )
 
 require (
@@ -26,7 +27,7 @@ require (
 	github.com/sahilm/fuzzy v0.1.0 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/image v0.0.0-20220302094943-723b81ca9867 // indirect
-	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
+	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
 	gopkg.in/eapache/queue.v1 v1.1.0 // indirect
 )
 

@@ -1,0 +1,85 @@
+{
+    "language": "zh-CN",
+    "messages": [
+        {
+            "id": "設定",
+            "message": "設定",
+            "translation": "设定"
+        },
+        {
+            "id": "語系",
+            "message": "語系",
+            "translation": "语系"
+        },
+        {
+            "id": "說明",
+            "message": "說明",
+            "translation": "说明"
+        },
+        {
+            "id": "複製貼上註記詞，將不確定的助記詞以＊代替．",
+            "message": "複製貼上註記詞，將不確定的助記詞以＊代替．",
+            "translation": "复制贴上注记词，将不确定的助记词以＊代替．"
+        },
+        {
+            "id": "助記詞",
+            "message": "助記詞",
+            "translation": "助记词"
+        },
+        {
+            "id": "未知",
+            "message": "未知",
+            "translation": "未知"
+        },
+        {
+            "id": "已知",
+            "message": "已知",
+            "translation": "已知"
+        },
+        {
+            "id": "助記詞：",
+            "message": "助記詞：",
+            "translation": "助记词："
+        },
+        {
+            "id": "錢包地址：",
+            "message": "錢包地址：",
+            "translation": "钱包地址："
+        },
+        {
+            "id": "匹配",
+            "message": "匹配",
+            "translation": "匹配"
+        },
+        {
+            "id": "警告",
+            "message": "警告",
+            "translation": "警告"
+        },
+        {
+            "id": "無效的 TRC20 USDT地址",
+            "message": "無效的 TRC20 USDT地址",
+            "translation": "无效的 TRC20 USDT地址"
+        },
+        {
+            "id": "不支援 12 組以上的助記詞",
+            "message": "不支援 12 組以上的助記詞",
+            "translation": "不支援 12 组以上的助记词"
+        },
+        {
+            "id": "匹配中",
+            "message": "匹配中",
+            "translation": "匹配中"
+        },
+        {
+            "id": "無法匹配助記詞",
+            "message": "無法匹配助記詞",
+            "translation": "无法匹配助记词"
+        },
+        {
+            "id": "有效組合",
+            "message": "有效組合",
+            "translation": "有效组合"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 # Define
-VERSION=1.0.1
+VERSION=1.0.2
 BUILD=$(shell git rev-parse HEAD)
 
 # Setup linker flags option for build that interoperate with variable names in src code
@@ -21,6 +21,13 @@ fmt:
 
 tidy:
 	go mod tidy
+
+go-text:
+	go install golang.org/x/text/cmd/gotext@latest
+
+translate: go-text
+	go generate ./internal/translations/translations.go
+
 
 ifeq ($(PLATFORM),darwin)
 osx-tool:

@@ -1,0 +1,85 @@
+{
+    "language": "en-GB",
+    "messages": [
+        {
+            "id": "設定",
+            "message": "設定",
+            "translation": "Setting"
+        },
+        {
+            "id": "語系",
+            "message": "語系",
+            "translation": "Language"
+        },
+        {
+            "id": "說明",
+            "message": "說明",
+            "translation": "Info"
+        },
+        {
+            "id": "複製貼上註記詞，將不確定的助記詞以＊代替．",
+            "message": "複製貼上註記詞，將不確定的助記詞以＊代替．",
+            "translation": "Copy and paste mnemonic phrase and replace unknown phrases with ＊"
+        },
+        {
+            "id": "助記詞",
+            "message": "助記詞",
+            "translation": "Phrases"
+        },
+        {
+            "id": "未知",
+            "message": "未知",
+            "translation": "Unknown"
+        },
+        {
+            "id": "已知",
+            "message": "已知",
+            "translation": "Known"
+        },
+        {
+            "id": "助記詞：",
+            "message": "助記詞：",
+            "translation": "Phrases"
+        },
+        {
+            "id": "錢包地址：",
+            "message": "錢包地址：",
+            "translation": "Address："
+        },
+        {
+            "id": "匹配",
+            "message": "匹配",
+            "translation": "Match"
+        },
+        {
+            "id": "警告",
+            "message": "警告",
+            "translation": "Warning"
+        },
+        {
+            "id": "無效的 TRC20 USDT地址",
+            "message": "無效的 TRC20 USDT地址",
+            "translation": "Invalid TRC20 Address"
+        },
+        {
+            "id": "不支援 12 組以上的助記詞",
+            "message": "不支援 12 組以上的助記詞",
+            "translation": "Only accept 12 phrases"
+        },
+        {
+            "id": "匹配中",
+            "message": "匹配中",
+            "translation": "Matching"
+        },
+        {
+            "id": "無法匹配助記詞",
+            "message": "無法匹配助記詞",
+            "translation": "No Matches"
+        },
+        {
+            "id": "有效組合",
+            "message": "有效組合",
+            "translation": "Valid Phrases"
+        }
+    ]
+}

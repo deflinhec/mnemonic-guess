@@ -68,14 +68,12 @@ func (m *FetcherType) Fetch(address string,
 	cond := condition{maxphrases: 12, address: address}
 	ConditionSequence(conds).apply(&cond)
 	defer m.fetch(phrases, cond)
+	m.manager[EXPAND].Flush()
+	m.manager[MATCH].Flush()
 	m.found.Store(false)
 	m.Iterates.Store(0)
 	m.result = nil
 	return m
-}
-
-func (m *FetcherType) Jobs() int64 {
-	return m.manager[EXPAND].Jobs()
 }
 
 func (m *FetcherType) Wait() *FetcherType {
