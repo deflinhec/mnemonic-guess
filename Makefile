@@ -1,5 +1,5 @@
 # Define
-VERSION=1.0.1
+VERSION=1.0.2
 BUILD=$(shell git rev-parse HEAD)
 
 # Setup linker flags option for build that interoperate with variable names in src code
