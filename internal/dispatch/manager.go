@@ -12,6 +12,7 @@ type ManagerType struct {
 	done       chan bool
 	JobTotal   int64
 	JobDone    int64
+	join       func(Job)
 	wg         *sync.WaitGroup
 }
 
@@ -22,6 +23,7 @@ func NewManager(opts ...Option) *ManagerType {
 		workerPool: make(chan chan Job, 8),
 		wg:         &sync.WaitGroup{},
 	}
+	m.join = func(j Job) { m.jobQueue <- j }
 	for _, opt := range opts {
 		opt.apply(m)
 	}
@@ -38,10 +40,14 @@ func (m *ManagerType) Run() {
 	atomic.StoreInt64(&m.JobDone, 0)
 }
 
+func (m *ManagerType) Jobs() int64 {
+	return m.JobTotal - m.JobDone
+}
+
 func (m *ManagerType) Join(work Job) {
 	m.wg.Add(1)
+	defer m.join(work)
 	atomic.AddInt64(&m.JobTotal, 1)
-	m.jobQueue <- work
 }
 
 func (m *ManagerType) Progress() float64 {
@@ -52,7 +58,7 @@ func (m *ManagerType) Progress() float64 {
 		return float64(0.0)
 	}
 	ratio := float64(m.JobDone) / float64(m.JobTotal)
-	return math.Min(ratio*float64(100.0), float64(100.0))
+	return math.Min(ratio, float64(1.0))
 }
 
 func (m *ManagerType) Wait() {

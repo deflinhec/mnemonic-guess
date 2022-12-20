@@ -10,4 +10,6 @@ type Manager interface {
 	Join(Job)
 
 	Progress() float64
+
+	Jobs() int64
 }

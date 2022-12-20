@@ -1,6 +1,9 @@
 package dispatch
 
-import "sync"
+import (
+	"sync"
+	"time"
+)
 
 type Option interface {
 	apply(s *ManagerType)
@@ -26,7 +29,7 @@ func WithWaitGroup(wg *sync.WaitGroup) Option {
 	})
 }
 
-func WithMaxJobs(limit int64) Option {
+func WithQueueLimit(limit int64) Option {
 	return newOption(func(m *ManagerType) {
 		m.jobQueue = make(chan Job, limit)
 	})
@@ -35,5 +38,32 @@ func WithMaxJobs(limit int64) Option {
 func WithMaxWorker(workers uint16) Option {
 	return newOption(func(m *ManagerType) {
 		m.workerPool = make(chan chan Job, workers)
+	})
+}
+
+func WithDemand(limit int64) Option {
+	return newOption(func(m *ManagerType) {
+		m.join = func(j Job) {
+			if m.Jobs() > limit {
+				j.Execute()
+				m.done <- true
+			} else if len(m.jobQueue) == cap(m.jobQueue) {
+				j.Execute()
+				m.done <- true
+			} else {
+				m.jobQueue <- j
+			}
+		}
+	})
+}
+
+func WithBlock(limit int64) Option {
+	return newOption(func(m *ManagerType) {
+		m.join = func(j Job) {
+			for m.Jobs() > limit {
+				<-time.After(time.Millisecond)
+			}
+			m.jobQueue <- j
+		}
 	})
 }

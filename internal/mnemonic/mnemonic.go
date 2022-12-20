@@ -4,7 +4,6 @@ import (
 	"runtime"
 	"sync"
 	"sync/atomic"
-	"time"
 
 	"github.com/foxnut/go-hdwallet"
 	"github.com/tyler-smith/go-bip39"
@@ -55,7 +54,6 @@ func (m *FetcherType) fetch(phrases PhraseSequence, cond condition) {
 		m.manager[EXPAND].Join(dispatch.FuncJob(func() {
 			for _, phrase := range bip39.GetWordList() {
 				m.fetch(phrases.Fill(phrase), cond)
-				<-time.After(time.Nanosecond)
 				if m.found.Load() {
 					break
 				}
@@ -74,6 +72,10 @@ func (m *FetcherType) Fetch(address string,
 	m.Iterates.Store(0)
 	m.result = nil
 	return m
+}
+
+func (m *FetcherType) Jobs() int64 {
+	return m.manager[EXPAND].Jobs()
 }
 
 func (m *FetcherType) Wait() *FetcherType {
@@ -99,12 +101,14 @@ func Fetcher() *FetcherType {
 			dispatch.NewManager(
 				dispatch.WithMaxWorker(12),
 				dispatch.WithWaitGroup(wg),
-				dispatch.WithMaxJobs(12),
+				dispatch.WithQueueLimit(12),
+				dispatch.WithDemand(20480),
 			),
 			dispatch.NewManager(
-				dispatch.WithMaxWorker(24),
+				dispatch.WithMaxWorker(48),
 				dispatch.WithWaitGroup(wg),
-				dispatch.WithMaxJobs(48),
+				dispatch.WithQueueLimit(1024),
+				dispatch.WithBlock(20480),
 			),
 		},
 	}

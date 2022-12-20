@@ -81,6 +81,7 @@ func loop() {
 					Buttons(g.MsgboxButtonsOk)
 			}),
 			g.Align(g.AlignCenter).To(
+
 				g.Row(
 					g.Label("助記詞"),
 					g.Label("未知"),
@@ -143,11 +144,8 @@ func loop() {
 					}
 				}).Disabled(process.Load()),
 		),
+		fetcher,
 		g.Align(g.AlignCenter).To(
-			g.Row(
-				g.Label("有效組合"),
-				g.Label(fmt.Sprint(fetcher.Iterates.Load())),
-			),
 			g.Label(placeholder.message),
 		),
 	)
@@ -157,6 +155,6 @@ func loop() {
 func main() {
 	title := "Mnemonic Guess "
 	title += fmt.Sprintf("Version:%v Build:%v", Version, Build)
-	wnd := g.NewMasterWindow(title, 860, 156, g.MasterWindowFlagsNotResizable)
+	wnd := g.NewMasterWindow(title, 860, 180, g.MasterWindowFlagsNotResizable)
 	wnd.Run(loop)
 }
